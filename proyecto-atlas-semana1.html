@@ -56,29 +56,16 @@ h3 { font-size: 12pt; margin: 8px 0 4px; color: #e67e22; }
   margin: 4px 0;
   background: #fefefe;
 }
-.draw-box {
-  border: 1px dashed #aaa;
+.draw-space {
   height: 80px;
   margin: 4px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #aaa;
-  font-size: 9pt;
 }
 .stars {
   float: right;
   font-size: 14pt;
   color: #f39c12;
 }
-.map-container {
-  text-align: center;
-  margin: 10px auto;
-}
-.map-container svg {
-  max-width: 100%;
-  height: auto;
-}
+
 .checklist { margin: 6px 0; }
 .checklist-item { margin: 2px 0; }
 .challenge-box {
@@ -99,50 +86,14 @@ h3 { font-size: 12pt; margin: 8px 0 4px; color: #e67e22; }
 </head>
 <body>
 
-<!-- PORTADA SEMANA 1 CON MAPA -->
+<!-- ENCABEZADO SEMANA 1 -->
 <div class="header-week">
 <h1>🌎 PROYECTO ATLAS — SEMANA 1</h1>
 <p><strong>Continente: AMÉRICA</strong></p>
 <p>Países de esta semana: 🇦🇷 Argentina · 🇧🇷 Brasil · 🇲🇽 México · 🇵🇪 Perú</p>
 </div>
 
-<div class="map-container">
-<svg viewBox="0 0 400 500" width="350" height="440" xmlns="http://www.w3.org/2000/svg">
-<!-- Contorno simplificado de América -->
-<!-- América del Norte -->
-<path d="M120,30 L180,25 L220,40 L240,60 L230,80 L220,90 L210,95 L200,100 L195,110 L190,120 L180,130 L170,135 L165,140 L160,145 L155,150 L150,155 L145,160 L140,162" fill="#e8e8e8" stroke="#666" stroke-width="1.2"/>
-<!-- México y Centroamérica -->
-<path d="M100,100 L130,90 L150,95 L170,100 L180,110 L175,120 L165,130 L155,140 L145,150 L140,155 L135,160 L130,165 L128,170 L125,175 L122,180 L120,185 L118,188 L115,190 L112,192" fill="#e8e8e8" stroke="#666" stroke-width="1.2"/>
-<!-- América del Sur -->
-<path d="M150,200 L165,195 L180,192 L200,195 L215,200 L225,210 L230,225 L235,240 L238,260 L235,280 L230,300 L225,320 L218,340 L210,360 L200,380 L190,395 L180,410 L170,420 L165,430 L168,440 L172,445 L170,450 L165,448 L160,440 L155,430 L150,420 L148,410 L145,395 L142,380 L140,360 L138,340 L137,320 L138,300 L140,280 L142,260 L145,240 L147,220 L150,200" fill="#e8e8e8" stroke="#666" stroke-width="1.2"/>
 
-<!-- Marcadores de países -->
-<!-- México -->
-<circle cx="125" cy="115" r="6" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
-<text x="90" y="112" font-size="8" font-weight="bold" fill="#e74c3c">MÉXICO</text>
-
-<!-- Perú -->
-<circle cx="160" cy="285" r="6" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
-<text x="130" y="298" font-size="8" font-weight="bold" fill="#e74c3c">PERÚ</text>
-
-<!-- Brasil -->
-<circle cx="210" cy="290" r="6" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
-<text x="218" y="294" font-size="8" font-weight="bold" fill="#e74c3c">BRASIL</text>
-
-<!-- Argentina -->
-<circle cx="175" cy="390" r="6" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
-<text x="183" y="394" font-size="8" font-weight="bold" fill="#e74c3c">ARGENTINA</text>
-
-<!-- Leyenda -->
-<rect x="280" y="20" width="110" height="60" fill="#fff" stroke="#666" rx="5"/>
-<text x="290" y="38" font-size="9" font-weight="bold">🗺️ Semana 1</text>
-<circle cx="295" cy="52" r="4" fill="#e74c3c"/>
-<text x="305" y="56" font-size="8">País a visitar</text>
-<text x="290" y="72" font-size="8">4 países · 4 días</text>
-</svg>
-</div>
-
-<div class="page-break"></div>
 
 <!-- DÍA 1 — ARGENTINA -->
 <div class="day-header">📅 DÍA 1 — 🇦🇷 ARGENTINA <span class="stars">☆ ☆ ☆</span></div>
@@ -196,7 +147,7 @@ Bianca vive en Argentina, un país muy largo. Allí vive el <strong>hornero</str
 <div class="section">
 <div class="section-title">🔍 Misión 3 — Descubro</div>
 <p>La bandera de Argentina es celeste, blanca y celeste, con un sol amarillo en el medio.</p>
-<div class="draw-box">✏️ Dibuja la bandera de Argentina</div>
+<div class="draw-space"></div>
 </div>
 
 <div class="page-break"></div>
@@ -258,7 +209,7 @@ Théo vive en Brasil, el país vecino. Allí vive el <strong>tucán</strong>, qu
 <div class="section">
 <div class="section-title">🔍 Misión 3 — Descubro</div>
 <p>En Brasil vive el tucán, que tiene un pico enorme y de colores.</p>
-<div class="draw-box">✏️ Dibuja un tucán</div>
+<div class="draw-space"></div>
 </div>
 
 <div class="page-break"></div>
@@ -317,7 +268,7 @@ Valentina vive en México, un país con desiertos, playas y pirámides antiguas.
 <div class="section">
 <div class="section-title">🔍 Misión 3 — Descubro</div>
 <p>En México son famosas las pirámides antiguas de los aztecas y los mayas.</p>
-<div class="draw-box">✏️ Dibuja una pirámide mexicana</div>
+<div class="draw-space"></div>
 </div>
 
 <div class="page-break"></div>
@@ -379,7 +330,7 @@ Mateo vive en Perú, un país con montañas altísimas. Allí vive la <strong>ll
 <div class="section">
 <div class="section-title">🔍 Misión 3 — Descubro</div>
 <p>La bandera de Perú es roja, blanca y roja (tres franjas verticales).</p>
-<div class="draw-box">✏️ Dibuja la bandera de Perú</div>
+<div class="draw-space"></div>
 </div>
 
 <div class="page-break"></div>
