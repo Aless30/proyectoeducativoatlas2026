@@ -2,138 +2,147 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Mi Registro de Hábitos Diarios</title>
+<title>Mi Registro de Hábitos</title>
 <style>
 @page { size: letter; margin: 1cm; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Comic Sans MS', 'Chalkboard SE', cursive; font-size: 8pt; color: #333; }
-h1 { font-size: 14pt; text-align: center; margin-bottom: 3px; }
-h2 { font-size: 9pt; text-align: center; margin-bottom: 6px; color: #555; }
-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
-th { background: #8e44ad; color: white; padding: 3px 2px; font-size: 7pt; text-align: center; }
-td { border: 1px solid #bbb; padding: 2px 1px; text-align: center; font-size: 7pt; height: 16px; }
-.sem-col { background: #f3e5f5; font-weight: bold; font-size: 7pt; width: 55px; }
-.hab-header { font-size: 6.5pt; writing-mode: horizontal-tb; padding: 2px; }
-.check { width: 16px; }
-.section-header { background: #e8daef; font-weight: bold; font-size: 7.5pt; text-align: left; padding-left: 5px; }
-.nombre { text-align: center; margin: 8px 0 2px; font-size: 9pt; }
-.nombre-line { border-bottom: 1px solid #333; width: 50%; margin: 0 auto; height: 14px; }
-.footer { text-align: center; font-size: 7pt; color: #888; margin-top: 4px; }
-.dia-col { background: #fafafa; }
-.weekend { background: #fff8e1; }
+body { font-family: 'Comic Sans MS', 'Chalkboard SE', cursive; font-size: 9pt; color: #333; }
+
+.bloque {
+  border: 1.5px solid #8e44ad;
+  border-radius: 8px;
+  padding: 6px 8px;
+  margin-bottom: 8px;
+  page-break-inside: avoid;
+}
+.titulo {
+  font-size: 10pt;
+  font-weight: bold;
+  color: #8e44ad;
+  margin-bottom: 2px;
+}
+.fecha-line {
+  font-size: 8pt;
+  margin-bottom: 4px;
+}
+table { width: 100%; border-collapse: collapse; }
+th { background: #f3e5f5; padding: 3px 2px; font-size: 8pt; text-align: center; border: 1px solid #ccc; }
+td { border: 1px solid #ccc; padding: 3px 2px; font-size: 8pt; text-align: center; height: 18px; }
+.habito { text-align: left; padding-left: 4px; width: 130px; }
+.check { width: 28px; }
 </style>
 </head>
 <body>
-
-<h1>⭐ MIS HÁBITOS DIARIOS — SEMANA ___</h1>
-<h2>Marca con ✓ cada hábito que completes cada día. ¡Tú puedes!</h2>
-
-<div class="nombre">Este registro pertenece a: <div class="nombre-line"></div></div>
-
+<div class="bloque">
+<div class="titulo">⭐ Mis hábitos de la semana</div>
+<div class="fecha-line">Semana del: ______________ al ______________</div>
 <table>
 <thead>
 <tr>
-<th style="width:140px;">Hábito</th>
+<th class="habito">Hábito</th>
 <th>Lun</th>
 <th>Mar</th>
 <th>Mié</th>
 <th>Jue</th>
 <th>Vie</th>
-<th class="weekend">Sáb</th>
-<th class="weekend">Dom</th>
+<th>Sáb</th>
+<th>Dom</th>
 </tr>
 </thead>
 <tbody>
-
-<!-- MAÑANA -->
-<tr><td colspan="8" class="section-header">🌅 MAÑANA</td></tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">⏰ Me desperté a la hora acordada</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">🛏️ Tendí mi cama</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">🪥 Me lavé los dientes (mañana)</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">🍳 Desayuné bien</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">👗 Me vestí sola</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-
-<!-- DÍA -->
-<tr><td colspan="8" class="section-header">☀️ DURANTE EL DÍA</td></tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">💧 Tomé suficiente agua (6+ vasos)</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">🌞 Tomé sol / jugué al aire libre</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">🎮 Tiempo de juego libre</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">📖 Leí o me leyeron un cuento</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">🏠 Ordené mis cosas / ayudé en casa</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">🍎 Comí frutas o verduras</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-
-<!-- NOCHE -->
-<tr><td colspan="8" class="section-header">🌙 NOCHE</td></tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">🛁 Me bañé</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">🪥 Me lavé los dientes (noche)</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">👕 Preparé mi ropa para mañana</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-<tr>
-<td style="text-align:left; padding-left:5px;">😴 Me acosté a la hora acordada</td>
-<td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check weekend">☐</td><td class="check weekend">☐</td>
-</tr>
-
+<tr><td class="habito">⏰ Me levanté a las: ___</td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td></tr>
+<tr><td class="habito">🛁 Me bañé</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🪥 Me lavé los dientes</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">💧 Tomé agua</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🌞 Tomé sol</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🏠 Ayudé en casa</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🎮 Jugué</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
 </tbody>
 </table>
+</div>
 
-<br>
+<div class="bloque">
+<div class="titulo">⭐ Mis hábitos de la semana</div>
+<div class="fecha-line">Semana del: ______________ al ______________</div>
 <table>
+<thead>
 <tr>
-<td style="border:none; text-align:left; font-size:8pt; padding:3px;">
-<strong>🌟 Mi mejor momento de la semana:</strong> _______________________________________________
-</td>
+<th class="habito">Hábito</th>
+<th>Lun</th>
+<th>Mar</th>
+<th>Mié</th>
+<th>Jue</th>
+<th>Vie</th>
+<th>Sáb</th>
+<th>Dom</th>
 </tr>
-<tr>
-<td style="border:none; text-align:left; font-size:8pt; padding:3px;">
-<strong>💪 La próxima semana quiero mejorar en:</strong> _______________________________________________
-</td>
-</tr>
+</thead>
+<tbody>
+<tr><td class="habito">⏰ Me levanté a las: ___</td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td></tr>
+<tr><td class="habito">🛁 Me bañé</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🪥 Me lavé los dientes</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">💧 Tomé agua</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🌞 Tomé sol</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🏠 Ayudé en casa</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🎮 Jugué</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+</tbody>
 </table>
+</div>
 
-<div class="footer">
-<br>
-Imprime una copia por semana · Pega en la pared o nevera para verla todos los días · ¡Celebra cada semana completa!
+<div class="bloque">
+<div class="titulo">⭐ Mis hábitos de la semana</div>
+<div class="fecha-line">Semana del: ______________ al ______________</div>
+<table>
+<thead>
+<tr>
+<th class="habito">Hábito</th>
+<th>Lun</th>
+<th>Mar</th>
+<th>Mié</th>
+<th>Jue</th>
+<th>Vie</th>
+<th>Sáb</th>
+<th>Dom</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="habito">⏰ Me levanté a las: ___</td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td></tr>
+<tr><td class="habito">🛁 Me bañé</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🪥 Me lavé los dientes</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">💧 Tomé agua</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🌞 Tomé sol</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🏠 Ayudé en casa</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🎮 Jugué</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="bloque">
+<div class="titulo">⭐ Mis hábitos de la semana</div>
+<div class="fecha-line">Semana del: ______________ al ______________</div>
+<table>
+<thead>
+<tr>
+<th class="habito">Hábito</th>
+<th>Lun</th>
+<th>Mar</th>
+<th>Mié</th>
+<th>Jue</th>
+<th>Vie</th>
+<th>Sáb</th>
+<th>Dom</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="habito">⏰ Me levanté a las: ___</td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td><td class="check"></td></tr>
+<tr><td class="habito">🛁 Me bañé</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🪥 Me lavé los dientes</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">💧 Tomé agua</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🌞 Tomé sol</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🏠 Ayudé en casa</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+<tr><td class="habito">🎮 Jugué</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td><td class="check">☐</td></tr>
+</tbody>
+</table>
 </div>
 
 </body>
