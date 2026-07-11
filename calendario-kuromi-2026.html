@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Kuromi - Julio a Diciembre 2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d1b4e 50%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .calendar-container {
+            width: 297mm;
+            height: 210mm;
+            background: linear-gradient(145deg, #f8e8f8 0%, #e8d0f0 30%, #f0e0f8 60%, #e0d0e8 100%);
+            border-radius: 20px;
+            padding: 12px 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(80, 0, 120, 0.4);
+        }
+
+        /* Decorative elements */
+        .calendar-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(180, 100, 200, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .calendar-container::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(100, 50, 150, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 22px;
+            color: #2d1b4e;
+            text-shadow: 2px 2px 0px rgba(180, 100, 200, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            font-size: 11px;
+            color: #6b4c8a;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* Kuromi decorations */
+        .kuromi-skull {
+            display: inline-block;
+            margin: 0 8px;
+            font-size: 18px;
+        }
+
+        .decoration-stars {
+            position: absolute;
+            font-size: 10px;
+            color: #9b59b6;
+            opacity: 0.6;
+        }
+
+        .star-1 { top: 15px; left: 20px; }
+        .star-2 { top: 25px; right: 30px; }
+        .star-3 { bottom: 15px; left: 40px; }
+        .star-4 { bottom: 25px; right: 20px; }
+        .star-5 { top: 50%; left: 10px; }
+        .star-6 { top: 50%; right: 10px; }
+
+        /* Calendar grid */
+        .months-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .month-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            padding: 6px 8px;
+            border: 2px solid #d4a0e8;
+            position: relative;
+            transition: transform 0.2s;
+        }
+
+        .month-card:nth-child(odd) {
+            border-color: #b080d0;
+        }
+
+        .month-card:nth-child(even) {
+            border-color: #d4a0e8;
+        }
+
+        .month-card::before {
+            content: '♪';
+            position: absolute;
+            top: 3px;
+            right: 6px;
+            font-size: 9px;
+            color: #c080e0;
+            opacity: 0.5;
+        }
+
+        .month-name {
+            font-family: 'Fredoka One', cursive;
+            font-size: 12px;
+            color: #2d1b4e;
+            text-align: center;
+            margin-bottom: 4px;
+            padding-bottom: 3px;
+            border-bottom: 1.5px dashed #d4a0e8;
+        }
+
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            margin-bottom: 2px;
+        }
+
+        .weekdays span {
+            font-size: 8px;
+            font-weight: 700;
+            color: #6b4c8a;
+            padding: 1px 0;
+        }
+
+        .weekdays span:first-child {
+            color: #e74c8b;
+        }
+
+        .weekdays span:last-child {
+            color: #9b59b6;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            gap: 0;
+        }
+
+        .days span {
+            font-size: 8.5px;
+            padding: 1.5px 0;
+            border-radius: 50%;
+            font-weight: 600;
+            color: #3d2b5e;
+            line-height: 1.4;
+        }
+
+        .days span.sunday {
+            color: #e74c8b;
+        }
+
+        .days span.saturday {
+            color: #9b59b6;
+        }
+
+        .days span.today {
+            background: linear-gradient(135deg, #9b59b6, #e74c8b);
+            color: white;
+            font-weight: 700;
+        }
+
+        .days span.empty {
+            color: transparent;
+        }
+
+        /* Kuromi face decoration */
+        .kuromi-face {
+            position: absolute;
+            bottom: 8px;
+            right: 12px;
+            font-size: 28px;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .kuromi-face-left {
+            position: absolute;
+            bottom: 8px;
+            left: 12px;
+            font-size: 28px;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        /* Hearts and skulls decoration between months */
+        .deco-border {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+            opacity: 0.08;
+            z-index: 1;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .calendar-container {
+                width: 100%;
+                height: 100vh;
+                border-radius: 0;
+                box-shadow: none;
+                padding: 10mm 12mm;
+            }
+
+            .month-card {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        /* Small skull pattern */
+        .pattern-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(circle at 10% 20%, #2d1b4e 1px, transparent 1px),
+                radial-gradient(circle at 30% 60%, #2d1b4e 1px, transparent 1px),
+                radial-gradient(circle at 50% 30%, #2d1b4e 1px, transparent 1px),
+                radial-gradient(circle at 70% 70%, #2d1b4e 1px, transparent 1px),
+                radial-gradient(circle at 90% 40%, #2d1b4e 1px, transparent 1px);
+            background-size: 100px 100px;
+            z-index: 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 6px;
+            font-size: 9px;
+            color: #8b6bab;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer span {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+        <!-- Background pattern -->
+        <div class="pattern-bg"></div>
+
+        <!-- Decorative stars -->
+        <span class="decoration-stars star-1">&#9733; &#9829;</span>
+        <span class="decoration-stars star-2">&#9829; &#9733;</span>
+        <span class="decoration-stars star-3">&#9733; &#9825;</span>
+        <span class="decoration-stars star-4">&#9825; &#9733;</span>
+        <span class="decoration-stars star-5">&#9830;</span>
+        <span class="decoration-stars star-6">&#9830;</span>
+
+        <!-- Kuromi face decorations -->
+        <div class="kuromi-face">&#9760;</div>
+        <div class="kuromi-face-left">&#9760;</div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1>
+                <span class="kuromi-skull">&#9760;</span>
+                Calendario 2026
+                <span class="kuromi-skull">&#9760;</span>
+            </h1>
+            <div class="subtitle">&#9829; Julio ~ Diciembre &#9829; &#9733; Kuromi Style &#9733;</div>
+        </div>
+
+        <!-- Months Grid -->
+        <div class="months-grid" id="monthsGrid">
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span>&#9829;</span>
+            <span>~ Made with mischief & love ~</span>
+            <span>&#9829;</span>
+        </div>
+    </div>
+
+    <script>
+        const months = [
+            { name: 'Julio', year: 2026, month: 6 },
+            { name: 'Agosto', year: 2026, month: 7 },
+            { name: 'Septiembre', year: 2026, month: 8 },
+            { name: 'Octubre', year: 2026, month: 9 },
+            { name: 'Noviembre', year: 2026, month: 10 },
+            { name: 'Diciembre', year: 2026, month: 11 }
+        ];
+
+        const weekdays = ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'];
+
+        const grid = document.getElementById('monthsGrid');
+
+        months.forEach(({ name, year, month }) => {
+            const card = document.createElement('div');
+            card.className = 'month-card';
+
+            // Month name
+            const monthName = document.createElement('div');
+            monthName.className = 'month-name';
+            monthName.textContent = name;
+            card.appendChild(monthName);
+
+            // Weekday headers
+            const weekdaysDiv = document.createElement('div');
+            weekdaysDiv.className = 'weekdays';
+            weekdays.forEach(day => {
+                const span = document.createElement('span');
+                span.textContent = day;
+                weekdaysDiv.appendChild(span);
+            });
+            card.appendChild(weekdaysDiv);
+
+            // Days
+            const daysDiv = document.createElement('div');
+            daysDiv.className = 'days';
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            // Empty cells before first day
+            for (let i = 0; i < firstDay; i++) {
+                const span = document.createElement('span');
+                span.className = 'empty';
+                span.textContent = '.';
+                daysDiv.appendChild(span);
+            }
+
+            // Day numbers
+            const today = new Date();
+            for (let day = 1; day <= daysInMonth; day++) {
+                const span = document.createElement('span');
+                span.textContent = day;
+
+                const dayOfWeek = new Date(year, month, day).getDay();
+                if (dayOfWeek === 0) span.classList.add('sunday');
+                if (dayOfWeek === 6) span.classList.add('saturday');
+
+                // Highlight today
+                if (today.getDate() === day && today.getMonth() === month && today.getFullYear() === year) {
+                    span.classList.add('today');
+                }
+
+                daysDiv.appendChild(span);
+            }
+
+            card.appendChild(daysDiv);
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
